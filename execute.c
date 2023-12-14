@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 int parametre_funcs();
 int no_parametre_funcs();
 int requires_parametre(char *command, FILE *filehandle)

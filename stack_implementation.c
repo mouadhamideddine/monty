@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 void print_stack_recursive(stack_t *stack)
 {
     if (!stack)
