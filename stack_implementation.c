@@ -1,4 +1,16 @@
 #include "monty.h"
+void print_stack(stack_t *stack)
+{
+    if (!stack)
+    {
+        return;
+    }
+    while (stack)
+    {
+        printf("%d\n", stack->n);
+        stack = stack->prev;
+    }
+}
 void print_stack_recursive(stack_t *stack)
 {
     if (!stack)
@@ -18,7 +30,7 @@ void print_stack_from_top(stack_t *stack)
 void pall_function(stack_t **stack,unsigned int line_number) 
 {   
     (void)line_number;
-    print_stack_from_top(*stack);
+    print_stack(*stack);
 }
 void free_stackt(stack_t **stack)
 {
