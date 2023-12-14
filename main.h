@@ -34,12 +34,10 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 int global_var;
-char **tokenizeline(char *input);
-int free_array(char **array);
-int check_command(char *tokenized_line[]);
+int execute_command(char *command, unsigned int linenumber, FILE *filehandle, stack_t **stack);
 void push_function(stack_t **stack,unsigned int line_number);
 void pall_function(stack_t **stack,unsigned int line_number);
-int execute_command(char **tokenized_line, unsigned int _linenumber, stack_t **_stack);
-int func_for_command_2p(char *_opcode,unsigned int _linenumber, stack_t **_stack);
 void free_stackt(stack_t **stack);
+void print_stack_from_top(stack_t *stack);
+void print_stack_from_top(stack_t *stack);
 #endif

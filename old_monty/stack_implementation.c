@@ -1,24 +1,9 @@
 #include "main.h"
-void print_stack_recursive(stack_t *stack)
-{
-    if (!stack)
-        return;
-
-    print_stack_recursive(stack->prev);
-    printf("%d\n", stack->n);
-}
-void print_stack_from_top(stack_t *stack)
-{
-    if (!stack)
-    {
-        return;
-    }
-    print_stack_recursive(stack);
-}
-void pall_function(stack_t **stack,unsigned int line_number) 
-{   
+void pall_function(stack_t **stack,unsigned int line_number) {
+    int integer_to_add = global_var;
+    (void)stack;
     (void)line_number;
-    print_stack_from_top(*stack);
+    printf("_n from pall = %d\n", integer_to_add);
 }
 void free_stackt(stack_t **stack)
 {
@@ -62,7 +47,6 @@ void push_func_no_empty_stack(stack_t **stack,unsigned int line_number)
 {
     stack_t *new_top = NULL, *old_top = NULL;
     (void)line_number;
-
     if (!(*stack))
     {
         fprintf(stderr, "push_func_no_empty_stack : i should not be called");
@@ -86,7 +70,7 @@ void push_func_no_empty_stack(stack_t **stack,unsigned int line_number)
     */
 }
 void push_function(stack_t **stack,unsigned int line_number) {
-
+    int integer_to_add = global_var;
     if (!(*stack))
     {
         push_function_empty_stack(stack, line_number);
