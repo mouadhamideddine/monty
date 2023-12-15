@@ -23,6 +23,30 @@ void pint_function(stack_t **stack, unsigned int line_number)
         printf("%d\n", (*stack)->n);
     }
 }
+void add_function(stack_t **stack, unsigned int line_number)
+{
+    stack_t *top1 = NULL;
+    stack_t *top2 = NULL;
+
+    if (*stack == NULL || (*stack)->prev == NULL)
+    {
+        fprintf(stderr, "L%u: can't add, stack too short\n", line_number);
+        exit(EXIT_FAILURE);
+    }
+
+    top1 = *stack;
+    top2 = top1->prev;
+
+    top2->n += top1->n;
+
+    *stack = top2;
+    if (top2->prev != NULL)
+    {
+        top2->prev = NULL;
+    }
+
+    free(top1);
+}
 void pop_function(stack_t **stack, unsigned int line_number)
 {
     stack_t *top = *stack;
