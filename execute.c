@@ -31,6 +31,7 @@ int execute_command(char *command, unsigned int linenumber, FILE *filehandle, st
         {"push", push_function},
         {"pall", pall_function},
         {"pint", pint_function},
+        {"pop", pop_function},
         {NULL, NULL},
     };
     /*printf("entered exec_commnad\n");*/

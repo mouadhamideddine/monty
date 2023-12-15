@@ -23,6 +23,26 @@ void pint_function(stack_t **stack, unsigned int line_number)
         printf("%d\n", (*stack)->n);
     }
 }
+void pop_function(stack_t **stack, unsigned int line_number)
+{
+    stack_t *top = *stack;
+
+    if (*stack == NULL)
+    {
+        fprintf(stderr, "L%u: can't pop an empty stack\n", line_number);
+        exit(EXIT_FAILURE);
+    }
+
+   
+    *stack = top->prev;
+
+    if (*stack != NULL)
+    {
+        (*stack)->next = NULL;
+    }
+
+    free(top);
+}
 void print_stack_recursive(stack_t *stack)
 {
     if (!stack)
@@ -50,7 +70,7 @@ void free_stackt(stack_t **stack)
 
     if(!(*stack))
     {
-        printf("nothing to free");
+        /*printf("nothing to free");*/
         return;
     }
     while(*stack)
