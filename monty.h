@@ -40,4 +40,6 @@ void pall_function(stack_t **stack,unsigned int line_number);
 void free_stackt(stack_t **stack);
 void print_stack_from_top(stack_t *stack);
 void print_stack_from_top(stack_t *stack);
+void printTop(stack_t *top);
+void pint_function(stack_t **stack, unsigned int line_number);
 #endif
