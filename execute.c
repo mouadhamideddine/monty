@@ -26,6 +26,7 @@ int execute_command(char *command, unsigned int linenumber, FILE *filehandle, st
 {
     int index = 0;
     int c;
+    char nop[] = "nop";
     instruction_t instructions[] = 
     {
         {"push", push_function},
@@ -35,6 +36,11 @@ int execute_command(char *command, unsigned int linenumber, FILE *filehandle, st
         {NULL, NULL},
     };
     /*printf("entered exec_commnad\n");*/
+    if (strcmp(command, nop) == 0)
+    {
+        while ((c = fgetc(filehandle)) != '\n' && c != EOF);
+        return (0);
+    }
     while (instructions[index].opcode)
     {
         /*printf("looping\n");*/
